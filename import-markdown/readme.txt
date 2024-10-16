@@ -1,4 +1,4 @@
-=== Import Markdown ===
+=== Import Markdown - Versatile Markdown Importer ===
 Contributors: DAEXT
 Tags: markdown, import, importer, markdown import, markdown importer
 Donate link: https://daext.com/
