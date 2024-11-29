@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Import Markdown
  * Description: Generates posts based on the imported markdown files.
- * Version: 1.12
+ * Version: 1.13
  * Author: DAEXT
  * Author URI: https://daext.com
  * Text Domain: import-markdown
@@ -50,6 +50,17 @@ if ( is_admin() ) {
 	Daimma_Admin::ac_initialize_options();
 
 }
+
+/**
+ * Load the plugin text domain for translation.
+ *
+ * @return void
+ */
+function daimma_load_plugin_textdomain() {
+	load_plugin_textdomain( 'import-markdown', false, 'import-markdown/lang/' );
+}
+
+add_action( 'init', 'daimma_load_plugin_textdomain' );
 
 /**
  * Customize the action links in the "Plugins" menu.

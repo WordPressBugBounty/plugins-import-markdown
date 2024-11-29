@@ -35,11 +35,8 @@ class Daimma_Shared {
 	 */
 	private function __construct() {
 
-		// Set plugin textdomain.
-		load_plugin_textdomain( 'import-markdown', false, 'import-markdown/lang/' );
-
 		$this->data['slug'] = 'daimma';
-		$this->data['ver']  = '1.12';
+		$this->data['ver']  = '1.13';
 		$this->data['dir']  = substr( plugin_dir_path( __FILE__ ), 0, -7 );
 		$this->data['url']  = substr( plugin_dir_url( __FILE__ ), 0, -7 );
 
