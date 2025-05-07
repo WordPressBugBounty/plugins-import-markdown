@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Import Markdown
  * Description: Generates posts based on the imported markdown files.
- * Version: 1.13
+ * Version: 1.14
  * Author: DAEXT
  * Author URI: https://daext.com
  * Text Domain: import-markdown

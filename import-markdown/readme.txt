@@ -3,9 +3,9 @@ Contributors: DAEXT
 Tags: markdown, import, importer, markdown import, markdown importer
 Donate link: https://daext.com/
 Requires at least: 4.5
-Tested up to: 6.7.1
+Tested up to: 6.8.1
 Requires PHP: 7.4
-Stable tag: 1.13
+Stable tag: 1.14
 License: GPLv3
 
 Import Markdown lets you easily generates posts based on Markdown files.
@@ -109,6 +109,13 @@ The following file extensions are supported:
 * .txt
 
 == Changelog ==
+
+= 1.14 =
+
+*May 6, 2025*
+
+* Fixed PHP notice caused by early use of translation functions.
+* Fixed JavaScript deprecation notices for back-end functionality.
 
 = 1.13 =
 
