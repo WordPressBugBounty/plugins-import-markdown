@@ -38,6 +38,10 @@ class Daimma_Import_Menu_Elements extends Daimma_Menu_Elements {
 	 */
 	public function process_form() {
 
+		if ( false === current_user_can( get_option( $this->shared->get( 'slug' ) . '_import_menu_required_capability' ) ) ) {
+			wp_die();
+		}
+
 		// Process the Markdown file upload (import) ------------------------------------------------------------------.
 		if ( isset( $_FILES['file_to_upload'] ) ) {
 

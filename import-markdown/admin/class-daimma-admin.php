@@ -114,69 +114,88 @@ class Daimma_Admin {
 
 			$config = array(
 				'admin_toolbar' => array(
-					'items'      => array(
-						array(
-							'link_text' => __( 'Import', 'import-markdown' ),
-							'link_url'  => admin_url( 'admin.php?page=daimma-import' ),
-							'icon'      => 'upload-03',
-							'menu_slug' => 'daimma-import',
-						),
-						array(
-							'link_text' => __( 'Log', 'import-markdown' ),
-							'link_url'  => admin_url( 'admin.php?page=daimma-log' ),
-							'icon'      => 'file-06',
-							'menu_slug' => 'daimma-log',
-						),
-						array(
-							'link_text' => __( 'Maintenance', 'import-markdown' ),
-							'link_url'  => admin_url( 'admin.php?page=daimma-maintenance' ),
-							'icon'      => 'tool-02',
-							'menu_slug' => 'daimma-maintenance',
-						),
-					),
-					'more_items' => array(
-						array(
-							'link_text' => __( 'Options', 'ultimate-markdown' ),
-							'link_url'  => admin_url( 'admin.php?page=daimma-options' ),
-							'pro_badge' => false,
-						),
-						array(
-							'link_text' => __( 'Markdown Editor', 'ultimate-markdown' ),
-							'link_url'  => 'https://daext.com/ultimate-markdown/#features',
-							'pro_badge' => true,
-						),
-						array(
-							'link_text' => __( 'Post Editor Integration', 'ultimate-markdown' ),
-							'link_url'  => 'https://daext.com/ultimate-markdown/#features',
-							'pro_badge' => true,
-						),
-						array(
-							'link_text' => __( 'Bulk Import', 'ultimate-markdown' ),
-							'link_url'  => 'https://daext.com/ultimate-markdown/#features',
-							'pro_badge' => true,
-						),
-						array(
-							'link_text' => __( 'Bulk Export', 'ultimate-markdown' ),
-							'link_url'  => 'https://daext.com/ultimate-markdown/#features',
-							'pro_badge' => true,
-						),
-						array(
-							'link_text' => __( 'Front Matter Support', 'ultimate-markdown' ),
-							'link_url'  => 'https://daext.com/ultimate-markdown/#features',
-							'pro_badge' => true,
-						),
-						array(
-							'link_text' => __( 'Automatic Image Upload', 'ultimate-markdown' ),
-							'link_url'  => 'https://daext.com/ultimate-markdown/#features',
-							'pro_badge' => true,
-						),
-						array(
-							'link_text' => __( 'REST API Endpoints', 'ultimate-markdown' ),
-							'link_url'  => 'https://daext.com/ultimate-markdown/#features',
-							'pro_badge' => true,
-						),
-					),
+					'items'      => array(),
+					'more_items' => array(),
 				),
+			);
+
+			// Items --------------------------------------------------------------------------------------------------.
+			if ( current_user_can( get_option( $this->shared->get( 'slug' ) . '_import_menu_required_capability' ) ) ) {
+				$config['admin_toolbar']['items'][] = array(
+					'link_text' => __( 'Import', 'import-markdown' ),
+					'link_url'  => admin_url( 'admin.php?page=daimma-import' ),
+					'icon'      => 'upload-03',
+					'menu_slug' => 'daimma-import',
+				);
+			}
+
+			if ( current_user_can( 'edit_others_posts' ) ) {
+				$config['admin_toolbar']['items'][] = array(
+					'link_text' => __( 'Log', 'import-markdown' ),
+					'link_url'  => admin_url( 'admin.php?page=daimma-log' ),
+					'icon'      => 'file-06',
+					'menu_slug' => 'daimma-log',
+				);
+			}
+
+			if ( current_user_can( 'manage_options' ) ) {
+				$config['admin_toolbar']['items'][] = array(
+					'link_text' => __( 'Maintenance', 'import-markdown' ),
+					'link_url'  => admin_url( 'admin.php?page=daimma-maintenance' ),
+					'icon'      => 'tool-02',
+					'menu_slug' => 'daimma-maintenance',
+				);
+			}
+
+			// More Items ---------------------------------------------------------------------------------------------.
+			if ( current_user_can( 'manage_options' ) ) {
+				$config['admin_toolbar']['more_items'][] = array(
+					'link_text' => __( 'Options', 'ultimate-markdown' ),
+					'link_url'  => admin_url( 'admin.php?page=daimma-options' ),
+					'pro_badge' => false,
+				);
+			}
+
+			$config['admin_toolbar']['more_items'][] = array(
+				'link_text' => __( 'Markdown Editor', 'ultimate-markdown' ),
+				'link_url'  => 'https://daext.com/ultimate-markdown/#features',
+				'pro_badge' => true,
+			);
+
+			$config['admin_toolbar']['more_items'][] = array(
+				'link_text' => __( 'Post Editor Integration', 'ultimate-markdown' ),
+				'link_url'  => 'https://daext.com/ultimate-markdown/#features',
+				'pro_badge' => true,
+			);
+
+			$config['admin_toolbar']['more_items'][] = array(
+				'link_text' => __( 'Bulk Import', 'ultimate-markdown' ),
+				'link_url'  => 'https://daext.com/ultimate-markdown/#features',
+				'pro_badge' => true,
+			);
+
+			$config['admin_toolbar']['more_items'][] = array(
+				'link_text' => __( 'Bulk Export', 'ultimate-markdown' ),
+				'link_url'  => 'https://daext.com/ultimate-markdown/#features',
+				'pro_badge' => true,
+			);
+
+			$config['admin_toolbar']['more_items'][] = array(
+				'link_text' => __( 'Front Matter Support', 'ultimate-markdown' ),
+				'link_url'  => 'https://daext.com/ultimate-markdown/#features',
+				'pro_badge' => true,
+			);
+
+			$config['admin_toolbar']['more_items'][] = array(
+				'link_text' => __( 'Automatic Image Upload', 'ultimate-markdown' ),
+				'link_url'  => 'https://daext.com/ultimate-markdown/#features',
+				'pro_badge' => true,
+			);
+
+			$config['admin_toolbar']['more_items'][] = array(
+				'link_text' => __( 'REST API Endpoints', 'ultimate-markdown' ),
+				'link_url'  => 'https://daext.com/ultimate-markdown/#features',
+				'pro_badge' => true,
 			);
 
 			// The parent class.
@@ -646,7 +665,7 @@ class Daimma_Admin {
 			$this->shared->get( 'slug' ) . '-import',
 			esc_attr__( 'IM - Log' ),
 			esc_attr__( 'Log' ),
-			get_option( $this->shared->get( 'slug' ) . '_log_menu_required_capability' ),
+			'edit_others_posts',
 			$this->shared->get( 'slug' ) . '-log',
 			array( $this, 'me_display_menu_log' )
 		);
@@ -655,7 +674,7 @@ class Daimma_Admin {
 			$this->shared->get( 'slug' ) . '-import',
 			esc_attr__( 'IM - Maintenance' ),
 			esc_attr__( 'Maintenance' ),
-			get_option( $this->shared->get( 'slug' ) . '_maintenance_menu_required_capability' ),
+			'manage_options',
 			$this->shared->get( 'slug' ) . '-maintenance',
 			array( $this, 'me_display_menu_maintenance' )
 		);

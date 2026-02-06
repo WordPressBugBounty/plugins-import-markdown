@@ -36,7 +36,7 @@ class Daimma_Shared {
 	private function __construct() {
 
 		$this->data['slug'] = 'daimma';
-		$this->data['ver']  = '1.14';
+		$this->data['ver']  = '1.15';
 		$this->data['dir']  = substr( plugin_dir_path( __FILE__ ), 0, -7 );
 		$this->data['url']  = substr( plugin_dir_url( __FILE__ ), 0, -7 );
 
@@ -56,8 +56,6 @@ class Daimma_Shared {
 			$this->get( 'slug' ) . '_import_post_type'     => 'post',
 			$this->get( 'slug' ) . '_log_import_data'      => '1',
 			$this->get( 'slug' ) . '_import_menu_required_capability' => 'edit_posts',
-			$this->get( 'slug' ) . '_log_menu_required_capability' => 'edit_posts',
-			$this->get( 'slug' ) . '_maintenance_menu_required_capability' => 'edit_posts',
 			$this->get( 'slug' ) . '_markdown_parser'      => 'parsedown',
 			$this->get( 'slug' ) . '_cebe_markdown_html5'  => '0',
 			$this->get( 'slug' ) . '_cebe_markdown_keep_list_start_number' => '0',
@@ -378,26 +376,6 @@ class Daimma_Shared {
 									'import-markdown'
 								),
 								'help'    => __( 'The capability required to get access on the "Import" menu.', 'import-markdown' ),
-							),
-							array(
-								'name'    => 'daimma_log_menu_required_capability',
-								'label'   => __( 'Log Menu', 'import-markdown' ),
-								'type'    => 'text',
-								'tooltip' => __(
-									'The capability required to get access on the "Log" menu.',
-									'import-markdown'
-								),
-								'help'    => __( 'The capability required to get access on the "Log" menu.', 'import-markdown' ),
-							),
-							array(
-								'name'    => 'daimma_maintenance_menu_required_capability',
-								'label'   => __( 'Maintenance Menu', 'import-markdown' ),
-								'type'    => 'text',
-								'tooltip' => __(
-									'The capability required to get access on the "Maintenance" menu.',
-									'import-markdown'
-								),
-								'help'    => __( 'The capability required to get access on the "Maintenance" menu.', 'import-markdown' ),
 							),
 						),
 					),

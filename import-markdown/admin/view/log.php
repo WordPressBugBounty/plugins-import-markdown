@@ -5,6 +5,6 @@
  * @package import-markdown
  */
 
-$this->menu_elements->capability = get_option( $this->shared->get( 'slug' ) . '_log_menu_required_capability' );
+$this->menu_elements->capability = 'edit_others_posts';
 $this->menu_elements->context    = null;
 $this->menu_elements->display_menu_content();

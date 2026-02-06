@@ -898,12 +898,17 @@ class Daimma_Menu_Elements {
 	 */
 	public function display_admin_toolbar() {
 
+		$has_import_menu_required_capability = current_user_can( get_option( $this->shared->get( 'slug' ) . '_import_menu_required_capability' ) );
+
 		?>
 
 		<div class="daimma-admin-toolbar">
 			<div class="daimma-admin-toolbar__left-section">
 				<div class="daimma-admin-toolbar__menu-items">
-					<a href="<?php echo esc_url( admin_url( 'admin.php?page=daimma-import' ) ); ?>" class="daimma-admin-toolbar__plugin-logo">
+					<a
+					href="<?php echo esc_url( $has_import_menu_required_capability ? admin_url( 'admin.php?page=daimma-import' ) : '#' ); ?>"
+					class="daimma-admin-toolbar__plugin-logo<?php echo $has_import_menu_required_capability ? '' : ' daimma-admin-toolbar__plugin-logo-disabled'; ?>"
+					>
 						<img src="<?php echo esc_url( $this->shared->get( 'url' ) . 'admin/assets/img/plugin-logo.svg' ); ?>" alt="Import Markdown" />
 					</a>
 					<?php

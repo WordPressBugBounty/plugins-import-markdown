@@ -176,8 +176,6 @@ class Daimma_Rest {
 
 		// Capabilities - Section -------------------------------------------------------------------------------------.
 		$options['daimma_import_menu_required_capability']      = $request->get_param( 'daimma_import_menu_required_capability' ) !== null ? sanitize_key( $request->get_param( 'daimma_import_menu_required_capability' ) ) : null;
-		$options['daimma_log_menu_required_capability']         = $request->get_param( 'daimma_log_menu_required_capability' ) !== null ? sanitize_key( $request->get_param( 'daimma_log_menu_required_capability' ) ) : null;
-		$options['daimma_maintenance_menu_required_capability'] = $request->get_param( 'daimma_maintenance_menu_required_capability' ) !== null ? sanitize_key( $request->get_param( 'daimma_maintenance_menu_required_capability' ) ) : null;
 
 		// Update the options -----------------------------------------------------------------------------------------.
 		foreach ( $options as $key => $option ) {
@@ -359,7 +357,7 @@ class Daimma_Rest {
 	 */
 	public function rest_api_daext_import_markdown_read_log_statistics_callback_permission_check() {
 
-		if ( ! current_user_can( get_option( $this->shared->get( 'slug' ) . '_log_menu_required_capability' ) ) ) {
+		if ( ! current_user_can( 'edit_others_posts' ) ) {
 			return new WP_Error(
 				'rest_update_error',
 				'Sorry, you are not allowed to read the Import Markdown statistics.',

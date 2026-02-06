@@ -3,9 +3,9 @@ Contributors: DAEXT
 Tags: markdown, import, importer, markdown import, markdown importer
 Donate link: https://daext.com/
 Requires at least: 4.5
-Tested up to: 6.8.1
+Tested up to: 6.8.3
 Requires PHP: 7.4
-Stable tag: 1.14
+Stable tag: 1.15
 License: GPLv3
 
 Import Markdown lets you easily generates posts based on Markdown files.
@@ -89,11 +89,11 @@ With this procedure you will be able to perform a **Single Site Activation** in 
 
 == Frequently Asked Questions ==
 
-= Which versions of PHP are supported?
+= Which versions of PHP are supported? =
 
 * PHP 7.4 and higher is required to run this plugin.
 
-= Which extensions are supported for the Markdown files?
+= Which extensions are supported for the Markdown files? =
 
 The following file extensions are supported:
 
@@ -108,7 +108,19 @@ The following file extensions are supported:
 * .text
 * .txt
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/8d61cec8-4c92-41ac-9481-5ee1a03921f6). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Changelog ==
+
+= 1.15 =
+
+*Nov 6, 2025*
+
+* Added a capability check in the import form handler.
+* Removed the "Log Menu" capability option. Access is now restricted to Editors or higher (edit_others_posts).
+* Removed the "Maintenance Menu" capability option. Access is now restricted to Administrators (manage_options).
 
 = 1.14 =
 
